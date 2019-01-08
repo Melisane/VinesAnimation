@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<!-- charset -->
+<meta charset="utf-8">
+
+<!-- viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- title -->
+<title>COMP 477</title>
+
+<!-- Bootstrap core CSS -->
+<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="./assets/css/main.css" rel="stylesheet">
+	</head>
+
+	<body class="bg-light">
+
+<!-- bootstrap container -->
+<div class="container-fluid">
+
+	<!-- header -->
+	<header>
+		<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm">
+			<div class="lh-100">
+				<h6 class="mb-0 text-white lh-100">Procedural Ivy</h6>
+				<small class="text-white">COMP 477 Computer Animation</small>
+			</div>
+		</div>
+	</header>
+	
+	<video class="card-img-top" autoplay="false" loop="loop">
+		<source src="./assets/img/vines_13.webm" type="video/webm">
+	</video>
+
+	<!-- team stuff -->
+	<div class="my-3 p-3 bg-white rounded shadow-sm">
+		<h6 class="border-bottom border-gray pb-2 mb-0">Team Name</h6>
+		<div class="media text-muted pt-3">
+			<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+				<strong class="d-block text-gray-dark">
+					Mélisane Lafrenaye
+				</strong>
+				40001757
+			</p>
+		</div>
+		<div class="media text-muted pt-3">
+			<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+				<strong class="d-block text-gray-dark">
+					Martin Lemay
+				</strong>
+				40016899
+			</p>
+		</div>
+		<div class="media text-muted pt-3">
+			<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+				<strong class="d-block text-gray-dark">
+					Mathew Mariani
+				</strong>
+				27228449
+			</p>
+		</div>
+	</div>
+
+	<!-- Branching Probability -->
+	<section>
+		<header>
+			<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm">
+				<div class="lh-100">
+					<h6 class="mb-0 text-white lh-100">Branching Probability</h6>
+					<small class="text-white">Each branch can spawn new branches.</small>
+				</div>
+			</div>
+		</header>
+		<div class="card-deck">
+			<!-- Low Branching Probability -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_3.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">Displays a low branching probability.</small>
+				</div>
+			</div>
+
+			<!-- High Branching Factor -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_2.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">Displays a high branching probability.</small>
+				</div>
+			</div>
+		</div>
+		<details>
+			<summary>Details</summary>
+			The vines in our project grow in relation to an L-System that we have implemented. L-Systems are used in computing to describes the behavior of plant cells and to model the growth of plants such as trees, see weed and vines. Our implementation of the L-System was based of the original system described by Lindenmayer (The author of the L-System). He used this algorithm to model the growth of Algae. In our project, we have done some small modification over the algorithm to create a more modular experience. Since our program is made to create vines in real time, we wanted the user to be able to create vines that corresponds to what he/she wants, so we added a variable that could control the amount of branching the L-System would have. With a high branching factor, the system would replicate the original L-System, but with a lower value, the number of branching would be smaller and the decision for when to branch would be random. With the minimum value, the vine would grow in a single branch and would never split.
+		</details>
+	</section>
+
+	<!-- Direction Variance -->
+	<section>
+		<header>
+			<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm">
+				<div class="lh-100">
+					<h6 class="mb-0 text-white lh-100">Direction Variance</h6>
+					<small class="text-white">The direction in which new segments point.</small>
+				</div>
+			</div>
+		</header>
+		<div class="card-deck">
+			<!-- Low Direction Variance -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_4.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">Displays a low direction variance.</small>
+				</div>
+			</div>
+
+			<!-- High Direction Variance -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_5.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">Displays a high direction variance.</small>
+				</div>
+			</div>
+		</div>
+		<details>
+			<summary>Details</summary>
+			In our project, the vines can be planted anywhere. Because of this, the vines needed to be able to detect the other objects in the scene to grow toward them and attach itself. So we added a bending and rotating value. Our code fetches the position of the nearest mesh and depending on its location, it will influence our vine to grow. The bending value can be change by the user, but depending on the location it will shift the value to either a positive one or a negative one, not influencing the intensity of the bending. The rotator works in an other manner. The user inputs a rotator value, this value defines how much the next branches to grow can have a  rotation different from the parent, so if the parent is growing straight up (with a rotation of 0) and the user inputs a rotation value of 25, then the next part of the vine can grow in a direction ranging from -25 to 25. going back to our mesh mentioned previously, we have created a bias that would affect the rotation. The idea behind is that if the root of the vine is far from the nearest mesh, our bias will affect the rotation value to influence the way the vine will grow. The closer the vine is from its target mesh, the less it will be affected by the bias (and so, the more random it will grow)
+		</details>
+	</section>
+
+	<!-- Object Interaction -->
+	<section>
+		<header>
+			<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm">
+				<div class="lh-100">
+					<h6 class="mb-0 text-white lh-100">Object Interaction</h6>
+					<small class="text-white">Each segment resolves collisions with objects.</small>
+				</div>
+			</div>
+		</header>
+		<div class="card-deck">
+			<!-- Cubes -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_9.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">The interaction of plants and cubes.</small>
+				</div>
+			</div>
+
+			<!-- Caravan -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_8.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">The interaction of plants and an object.</small>
+				</div>
+			</div>
+		</div>
+		<details>
+			<summary>Details</summary>
+			To give a more realistic animation, the vines are implemented as a doubly linked list of branches. Every time a branch is colliding with an object a rotation is applied to it to get out of the collision, and when it doesn’t collide, it bends down because of the physic force given by the weight of the branches on the tree. The rotation of the branches is calculated at every frame so that the rotation looks smooth. When a rotation is applied to a child, this child registers its rotation and gives a diminished rotation value to its previous three parents (because of the physic force given by the weight of the branches on the previous branches). The position of the child pivot is recalculated according to the new position of its parent so that they are kept together.
+		</details>
+	</section>
+	<!-- Multiple Plant -->
+	<section>
+		<header>
+			<div class="d-flex align-items-center p-3 my-3 bg-purple rounded shadow-sm">
+				<div class="lh-100">
+					<h6 class="mb-0 text-white lh-100">Authoring Plants</h6>
+					<small class="text-white">Multiple plants can be planted and grown.</small>
+				</div>
+			</div>
+		</header>
+		<div class="card-deck">
+			<!-- Cubes -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_10.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">Authored plants interacting with the same cubes.</small>
+				</div>
+			</div>
+
+			<!-- Cubes -->
+			<div class="card">
+				<video class="card-img-top" autoplay="false" loop="loop">
+					<source src="./assets/img/vines_11.webm" type="video/webm">
+				</video>
+				<div class="card-footer">
+					<small class="text-muted">Authored plants interacting with seperate cubes.</small>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="text-center">
+		<hr />
+		<p>Concordia University 2018-2019</p>
+	</footer>
+</div>
+	</body>
+
+</html>

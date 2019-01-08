@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 7e42cde52c2e3cb468aaf45507235f47
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - vineCube: {fileID: 1989588536787796, guid: 783662f90e63f4143b5efafb7d3709f2, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
